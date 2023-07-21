@@ -7,7 +7,7 @@ function App() {
   const [hola, setHola] = useState("");
 
   useEffect(() => {
-    socket.emit("pong", "Hola?");
+    socket.emit("pong", "Holal Pong");
 
     socket.on("ping", ({ message }) => {
       setHola(message);
