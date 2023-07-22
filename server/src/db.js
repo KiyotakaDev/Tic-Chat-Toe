@@ -1,6 +1,7 @@
 import { connect } from "mongoose";
 import { config as dotenv } from "dotenv";
 
+// Setting environment variables
 dotenv();
 const dbConnection = process.env.DB_CONNECTION;
 
