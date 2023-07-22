@@ -35,3 +35,27 @@ export const register = async (req, res) => {
     return res.status(500).json({ error });
   }
 };
+
+export const login = async (req, res) => {
+  try {
+    // Deconstructing
+    const { email, password } = req.body;
+
+    // Finding user by email
+    const userFound = await User.findOne({ email });
+    if (!userFound) return res.status(401).json(["Invalid credentials"]);
+
+    // Comparing password
+    const isMatch = await bcryptjs.compare(password, userFound.password);
+    if (!isMatch) return res.status(401).json(["Invalid credentials"]);
+
+    // Returning user data
+    return res.json({
+      id: userFound._id,
+      username: userFound.username,
+      email: userFound.email,
+      createdAt: userFound.createdAt,
+      updatedAt: userFound.updatedAt,
+    });
+  } catch (error) {}
+};
