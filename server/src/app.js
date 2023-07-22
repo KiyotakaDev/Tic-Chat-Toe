@@ -6,6 +6,7 @@ import { Server as SocketServer } from "socket.io";
 // Importing routes
 import authRoutes from "./routes/auth.routes.js";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 
 // Creating basic server
 const app = express();
@@ -14,6 +15,7 @@ app.set("port", 3000);
 // Using middlewares
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cookieParser())
 
 // Using prefix "/api"
 app.use("/api", authRoutes);
