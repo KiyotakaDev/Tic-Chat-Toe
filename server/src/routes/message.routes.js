@@ -13,7 +13,7 @@ const router = Router();
 
 router.post("/messages", authRequired, createMessage);
 router.get("/messages", authRequired, getMessages);
-router.get("/messages/search/:keyword", authRequired, getMessageByKeyword);
+router.get("/messages/search/:keyword?", authRequired, getMessageByKeyword);
 router.put("/messages/:messageId", authRequired, updateMessage);
 router.delete("/messages/:messageId", authRequired, deleteMessage);
 
