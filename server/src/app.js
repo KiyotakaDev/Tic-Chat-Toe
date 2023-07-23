@@ -5,6 +5,8 @@ import { Server as SocketServer } from "socket.io";
 
 // Importing routes
 import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from './routes/message.routes.js'
+
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 
@@ -19,6 +21,7 @@ app.use(cookieParser())
 
 // Using prefix "/api"
 app.use("/api", authRoutes);
+app.use("/api", messageRoutes);
 
 // Creating SocketServer
 export const server = http.createServer(app);
