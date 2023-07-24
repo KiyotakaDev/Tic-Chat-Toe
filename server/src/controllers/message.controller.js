@@ -1,4 +1,3 @@
-import { boolean } from "zod";
 import Message from "../models/message.model.js";
 
 // Create message controller
@@ -27,7 +26,7 @@ export const createMessage = async (req, res) => {
 export const getMessages = async (req, res) => {
   try {
     // Getting all messages
-    const messages = await Message.find({ user: req.user.id }).populate("user");
+    const messages = await Message.find({ user: req.user.id }).populate("user", "-password -email -createdAt -updatedAt");
 
     // Returning messages
     return res.json(messages);
@@ -56,7 +55,7 @@ export const getMessageByKeyword = async (req, res) => {
       // model: { search: keyword, options: insensitive between uppercase and lowercase }
       message: { $regex: searchKeyword, $options: "i" },
       user: req.user.id
-    }).populate("user");
+    }).populate("user", "-password -email -createdAt -updatedAt");
 
     // isEmpty == boolean(false || true). if [] && is empty = true
     const isEmpty = Array.isArray(message) && message.length === 0;
