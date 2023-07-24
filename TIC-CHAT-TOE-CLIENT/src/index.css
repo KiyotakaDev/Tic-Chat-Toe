@@ -1,10 +1,66 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Normalizacion de la pagina */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-body{
-    background-color: #202020;
-    color: white;
+body {
+  background-color: #444;
 }
+
+/*
+    Estilos del Sing In
+*/
+
+.eye {
+  position: absolute;
+  margin-top: -9px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  width: 2.1em;
+  height: 2em;
+}
+
+.bloque {
+  display: block;
+}
+
+input {
+  border: none;
+  height: 2em;
+  outline: none;
+  width: 285px;
+}
+
+.inputField {
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  width: 300px;
+}
+
+.divForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(177, 204, 115);
+  height: 100%;
+}
+
+.sing-btn {
+    position: relative;
+  width: 300px;
+  height: 40px;
+  background-color: rgb(189, 232, 70);
+  border: transparent;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+

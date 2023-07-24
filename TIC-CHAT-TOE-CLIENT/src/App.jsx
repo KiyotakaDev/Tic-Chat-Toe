@@ -1,22 +1,11 @@
-import { useState, useEffect } from "react";
-import { io } from "socket.io-client";
-
-const socket = io("http://localhost:3000");
+import {Login} from './components/Login'
+import {EpicTitle} from './components/EpicTitle'
 
 function App() {
-  const [hola, setHola] = useState("");
-
-  useEffect(() => {
-    socket.emit("pong", "Hola?");
-
-    socket.on("ping", ({ message }) => {
-      setHola(message);
-    });
-  }, []);
-
   return (
     <>
-      <h1>Hola {hola}</h1>
+      <EpicTitle/>
+      <Login/>
     </>
   );
 }
