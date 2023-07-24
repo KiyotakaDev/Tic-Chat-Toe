@@ -9,9 +9,15 @@ export const register = async (req, res) => {
     // Deconstruction of req.body
     const { username, email, password } = req.body;
 
-    // Validating if the user doesn't exist already
-    const userFound = await User.findOne({ email });
-    if (userFound) return res.status(409).json(["The email is already in use"]);
+    // Validating if the user doesn't exist already by username
+    const userFoundByUsername = await User.findOne({ username });
+    if (userFoundByUsername)
+      return res.status(409).json(["Username already in use"]);
+
+    // Validating if the user doesn't exist already by email
+    const userFoundByEmail = await User.findOne({ email });
+    if (userFoundByEmail)
+      return res.status(409).json(["The email is already in use"]);
 
     // Creating a passwordhash
     const passwordHash = await bcryptjs.hash(password, 12);
@@ -46,10 +52,10 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     // Deconstructing
-    const { email, password } = req.body;
+    const { username, email, password } = req.body;
 
-    // Finding user by email
-    const userFound = await User.findOne({ email });
+    // Finding user either by username or email
+    const userFound = username ? await User.findOne({ username }) : await User.findOne({ email });
     if (!userFound) return res.status(401).json(["Invalid credentials"]);
 
     // Comparing password
@@ -99,5 +105,5 @@ export const logout = async (_, res) => {
   res.cookie("token", "", {
     expires: new Date(0),
   });
-  return res.sendStatus(200);
+  return res.sendStatus(204);
 };
