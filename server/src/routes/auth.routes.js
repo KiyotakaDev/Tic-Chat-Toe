@@ -1,9 +1,14 @@
 import { Router } from "express";
-import { login, logout, profile, register } from "../controllers/auth.controller.js";
+import {
+  login,
+  logout,
+  profile,
+  register,
+} from "../controllers/auth.controller.js";
 
 import { authRequired } from "../middlewares/validateAuth.js";
-import { validateSchema } from '../middlewares/validateSchema.js'
-import { registerSchema, loginSchema } from '../schemas/auth.schema.js'
+import { validateSchema } from "../middlewares/validateSchema.js";
+import { registerSchema, loginSchema } from "../schemas/auth.schema.js";
 
 const router = Router();
 

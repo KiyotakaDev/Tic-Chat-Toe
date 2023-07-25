@@ -10,7 +10,7 @@ export const createMessage = async (req, res) => {
     const newMessage = new Message({
       message,
       date,
-      user: req.user.id
+      user: req.user.id,
     });
     // Saving the message
     const messageSaved = await newMessage.save();
@@ -26,7 +26,10 @@ export const createMessage = async (req, res) => {
 export const getMessages = async (req, res) => {
   try {
     // Getting all messages
-    const messages = await Message.find({ user: req.user.id }).populate("user", "-password -email -createdAt -updatedAt");
+    const messages = await Message.find({ user: req.user.id }).populate(
+      "user",
+      "-password -email -createdAt -updatedAt"
+    );
 
     // Returning messages
     return res.json(messages);
@@ -39,11 +42,11 @@ export const getMessages = async (req, res) => {
 export const getMessageByKeyword = async (req, res) => {
   try {
     // Deconstructing req.params
-    const { keyword } = req.params
+    const { keyword } = req.params;
     // Setting up defaultKeword to an empty string
-    const defaultKeyword = ""
+    const defaultKeyword = "";
     // if keyword have something reutnr keyword else defaultKeyword
-    const searchKeyword = keyword || defaultKeyword
+    const searchKeyword = keyword || defaultKeyword;
     // Checking if the keyword length is < 3 characters
     if (searchKeyword.length < 3) {
       // Returning error if not
@@ -54,12 +57,12 @@ export const getMessageByKeyword = async (req, res) => {
     const message = await Message.find({
       // model: { search: keyword, options: insensitive between uppercase and lowercase }
       message: { $regex: searchKeyword, $options: "i" },
-      user: req.user.id
+      user: req.user.id,
     }).populate("user", "-password -email -createdAt -updatedAt");
 
     // isEmpty == boolean(false || true). if [] && is empty = true
     const isEmpty = Array.isArray(message) && message.length === 0;
-    if (isEmpty) return res.status(404).json(["Message not found"])
+    if (isEmpty) return res.status(404).json(["Message not found"]);
     // Else = return res.json(message)
     return res.json(message);
   } catch (error) {
