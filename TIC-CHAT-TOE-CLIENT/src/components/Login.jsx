@@ -36,7 +36,7 @@ export function Login() {
             onClick={viewPassword}
           ></button>
         </div>
-        <button className="sing-btn">SingIn</button>
+        <button type="submit" className="sing-btn">SingIn</button>
       </form>
     </div>
   );

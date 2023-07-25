@@ -1,9 +1,5 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
 export function EpicTitle() {
-  return (
-    <h1>Wassaa 👻</h1>
-  )
+  return <h1><Link to="/" className="epicTitle">Wassaa 👻</Link></h1>;
 }
-
-export default EpicTitle
