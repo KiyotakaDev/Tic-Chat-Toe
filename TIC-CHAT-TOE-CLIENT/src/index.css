@@ -8,7 +8,12 @@
 }
 
 body {
-  background-color: #444;
+  background-color: black;
+}
+
+hr {
+  width: 400px;
+  margin: 20px;
 }
 
 /*
@@ -24,10 +29,16 @@ body {
   border-style: none;
   width: 2.1em;
   height: 2em;
+
 }
 
 .bloque {
   display: block;
+}
+
+.labels{
+  color: white;
+  font-weight: bold;
 }
 
 input {
@@ -35,10 +46,12 @@ input {
   height: 2em;
   outline: none;
   width: 285px;
+  background-color: rgb(37, 37, 37);
 }
 
 .inputField {
-  background-color: white;
+  background-color: rgb(37, 37, 37);
+  border: 2px solid transparent;
   border-radius: 5px;
   margin: 10px;
   padding: 5px;
@@ -49,25 +62,43 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(177, 204, 115);
-  height: 100%;
+  flex-direction: column;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(138, 54, 210, 1) 100%
+  );
+  width: 600px;
+  height: 82vh;
+  border-radius: 4px;
+  margin: 20px;
 }
 
 .sing-btn {
-    position: relative;
+  position: relative;
   width: 300px;
   height: 40px;
-  background-color: rgb(189, 232, 70);
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #8a36d2;
   border: transparent;
   border-radius: 10px;
   margin-left: 10px;
+  transition: 0.3s;
+}
+.sing-btn:hover {
+  background-color: #702cac;
 }
 
 /* Estilos del epicTitle */
 
-.epicTitle{
+.epicTitle {
   text-decoration: none;
   color: white;
 }
 
-
+.epicTitleContainer {
+  background-color: #8a36d2;
+  padding: 10px;
+}

@@ -5,9 +5,15 @@ export function LoginPage() {
   return (
     <div>
       <EpicTitle />
-      <Login />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Login />
+      </div>
     </div>
   );
 }
-
-
