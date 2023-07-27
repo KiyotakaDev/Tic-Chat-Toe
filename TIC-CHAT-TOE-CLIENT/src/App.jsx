@@ -1,22 +1,18 @@
-import { useState, useEffect } from "react";
-import { io } from "socket.io-client";
-
-const socket = io("http://localhost:3000");
+import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RegisterPage } from "./pages/RegisterPage";
 
 function App() {
-  const [hola, setHola] = useState("");
-
-  useEffect(() => {
-    socket.emit("pong", "Hola?");
-
-    socket.on("ping", ({ message }) => {
-      setHola(message);
-    });
-  }, []);
-
   return (
     <>
-      <h1>Hola {hola}</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/createAccount" element={<RegisterPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

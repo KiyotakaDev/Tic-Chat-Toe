@@ -1,10 +1,105 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Normalizacion de la pagina */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-body{
-    background-color: #202020;
-    color: white;
+body {
+  background-color: black;
+}
+
+hr {
+  width: 400px;
+  margin: 20px;
+}
+
+/*
+    Estilos del Sing In
+*/
+
+.eye {
+  position: absolute;
+  margin-top: -9px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  width: 2.1em;
+  height: 2em;
+
+}
+
+.bloque {
+  display: block;
+}
+
+.labels{
+  color: white;
+  font-weight: bold;
+}
+
+input {
+  border: none;
+  height: 2em;
+  outline: none;
+  width: 285px;
+  background-color: rgb(37, 37, 37);
+}
+
+.inputField {
+  background-color: rgb(37, 37, 37);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 300px;
+}
+
+.divForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(138, 54, 210, 1) 100%
+  );
+  width: 600px;
+  height: 82vh;
+  border-radius: 4px;
+  margin: 20px;
+}
+
+.sing-btn {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #8a36d2;
+  border: transparent;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.sing-btn:hover {
+  background-color: #702cac;
+}
+
+/* Estilos del epicTitle */
+
+.epicTitle {
+  text-decoration: none;
+  color: white;
+}
+
+.epicTitleContainer {
+  background-color: #8a36d2;
+  padding: 10px;
 }
