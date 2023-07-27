@@ -1,4 +1,4 @@
-import { Login } from "../components/Login";
+import { LoginForm } from "../components/LoginForm";
 import { EpicTitle } from "../components/EpicTitle";
 
 export function LoginPage() {
@@ -12,7 +12,7 @@ export function LoginPage() {
           alignItems: "center",
         }}
       >
-        <Login />
+        <LoginForm />
       </div>
     </div>
   );

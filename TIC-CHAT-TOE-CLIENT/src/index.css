@@ -53,7 +53,8 @@ input {
   background-color: rgb(37, 37, 37);
   border: 2px solid transparent;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 5px;
   width: 300px;
 }
@@ -84,7 +85,7 @@ input {
   background-color: #8a36d2;
   border: transparent;
   border-radius: 10px;
-  margin-left: 10px;
+  margin-top: 20px;
   transition: 0.3s;
 }
 .sing-btn:hover {
