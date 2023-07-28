@@ -94,6 +94,7 @@ input {
   margin-top: 20px;
   overflow: hidden;
   z-index: 2;
+  cursor: pointer;
 }
 
 .sing-btn::before{
