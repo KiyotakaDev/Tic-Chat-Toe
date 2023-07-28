@@ -1,9 +1,8 @@
 import { EpicTitle } from "../components/EpicTitle";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { loginRequets } from "../api/auth";
-import { useNavigate } from "react-router-dom";
 import { InputPassword } from "../components/InputPassword";
 
 export function LoginPage() {
