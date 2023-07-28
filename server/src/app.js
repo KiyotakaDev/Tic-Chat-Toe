@@ -4,6 +4,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
+import cors from 'cors'
 
 // Creating basic server
 const app = express();
@@ -13,6 +14,7 @@ app.set("port", 3000);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors())
 
 // Using prefix "/api"
 app.use("/api", authRoutes);
