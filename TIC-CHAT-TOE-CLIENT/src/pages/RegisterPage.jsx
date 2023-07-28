@@ -1,3 +1,7 @@
 export function RegisterPage() {
-  return <div>Registrate</div>;
+  return <div>
+    <form >
+      <input type="text" placeholder="name"/>
+    </form>
+  </div>;
 }
