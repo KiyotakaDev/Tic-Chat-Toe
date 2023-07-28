@@ -35,7 +35,7 @@ hr {
   border-style: none;
   width: 2.1em;
   height: 2em;
-
+  cursor: pointer;
 }
 
 .bloque {
