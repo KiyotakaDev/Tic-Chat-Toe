@@ -50,7 +50,7 @@ export function LoginPage() {
                 id="userInput"
                 className="bloque"
                 style={{ color: "white" }}
-                {...register("user", {
+                {...register("username", {
                   required: true,
                   maxLength: 15,
                   minLength: 3,
