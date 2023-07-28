@@ -52,17 +52,15 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     // Deconstructing
-    const { username, email, password } = req.body;
+    const { username, password } = req.body;
 
-    // Finding user either by username or email
-    const userFound = username
-      ? await User.findOne({ username })
-      : await User.findOne({ email });
-    if (!userFound) return res.status(401).json(["Invalid credentials"]);
+    // Finding user by username
+    const userFound = await User.findOne({ username })
+    if (!userFound) return res.status(401).json(["Invalid username"]);
 
     // Comparing password
     const isMatch = await bcryptjs.compare(password, userFound.password);
-    if (!isMatch) return res.status(401).json(["Invalid credentials"]);
+    if (!isMatch) return res.status(401).json(["Invalid password"]);
 
     // Creating access token
     const token = await createAccesToken({ id: userFound._id });
