@@ -1,14 +1,12 @@
 import { EpicTitle } from "../components/EpicTitle";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { loginRequets } from "../api/auth";
 import { InputPassword } from "../components/InputPassword";
 
 export function LoginPage() {
-  const [user, setUser] = useState(null);
-  const [isAuth, setIsAuth] = useState(false);
-  const [loginErrors, setLoginErrors] = useState([]);
+  const { user, isAuth, onLogin, loginErrors } = useContext(AuthContext);
 
   const {
     register,
@@ -18,20 +16,8 @@ export function LoginPage() {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (data) => {
-    try {
-      const res = await loginRequets(data);
-
-      if (res.status === 200) {
-        setUser(res.data);
-        setIsAuth(true);
-      }
-    } catch (error) {
-      setLoginErrors(error.response.data.message);
-      //esto no lo voy a quitar
-      console.log("Algo paso :O", error);
-    }
-    console.log(data);
+  const onSubmit = (data) => {
+      onLogin(data);
   };
 
   useEffect(() => {
@@ -42,7 +28,6 @@ export function LoginPage() {
 
   return (
     <div>
-
       <EpicTitle />
 
       <div className="center">
@@ -114,7 +99,6 @@ export function LoginPage() {
             <button type="submit" className="sing-btn">
               Login
             </button>
-
           </form>
           <hr />
           {/* Redireccion hacia create account */}
